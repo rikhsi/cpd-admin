@@ -1,1 +1,41 @@
-<p>login works!</p>
+<h1 class="title">Логин</h1>
+
+<tui-input 
+    [tuiTextfieldCleaner]="true"
+    class="email"
+>
+    Почта
+    <input tuiTextfieldLegacy />
+</tui-input>
+
+<tui-input
+    [tuiTextfieldCleaner]="true"
+    [tuiTextfieldCustomContent]="eye"
+>
+    Пароль
+    <input type="password" tuiTextfieldLegacy />
+</tui-input>
+
+<a
+    tuiLink
+    routerLink="../recovery"
+    class="recovery"
+>
+    Забыли пароль?
+</a>
+
+<button
+    size="l"
+    tuiButton
+    type="button"
+    class="submit"
+>
+    Войти
+</button>
+
+<ng-template #eye>
+    <tui-icon
+        icon="@tui.eye"
+        class="success tui-space_left-3"
+    />
+</ng-template>
