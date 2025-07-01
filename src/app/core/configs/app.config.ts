@@ -1,5 +1,5 @@
-import { provideEventPlugins } from "@taiga-ui/event-plugins";
-import { provideAnimations } from "@angular/platform-browser/animations";
+import { provideEventPlugins } from '@taiga-ui/event-plugins';
+import { provideAnimations } from '@angular/platform-browser/animations';
 import {
   ApplicationConfig,
   LOCALE_ID,
@@ -23,13 +23,15 @@ import {
 } from '@angular/common/http';
 import { apiInterceptor } from '@core/interceptors';
 import { localeProvider } from '@core/providers';
+import { TUI_LANGUAGE, TUI_RUSSIAN_LANGUAGE } from '@taiga-ui/i18n';
+import { of } from 'rxjs';
 
 registerLocaleData(localeRu, 'ru');
 
 export const appConfig: ApplicationConfig = {
   providers: [
-        provideAnimations(),
-        provideBrowserGlobalErrorListeners(),
+    provideAnimations(),
+    provideBrowserGlobalErrorListeners(),
     provideZonelessChangeDetection(),
     provideRouter(
       routes,
@@ -49,6 +51,10 @@ export const appConfig: ApplicationConfig = {
       provide: LOCALE_ID,
       useFactory: localeProvider,
     },
-        provideEventPlugins()
-    ],
+    {
+      provide: TUI_LANGUAGE,
+      useValue: of(TUI_RUSSIAN_LANGUAGE),
+    },
+    provideEventPlugins(),
+  ],
 };
