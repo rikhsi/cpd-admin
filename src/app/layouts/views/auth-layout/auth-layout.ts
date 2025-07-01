@@ -4,7 +4,7 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
   selector: 'cpd-auth-layout',
   imports: [],
   templateUrl: './auth-layout.html',
-  styleUrl: './auth-layout.scss',
+  styleUrl: './auth-layout.less',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class AuthLayout {

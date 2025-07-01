@@ -1,3 +1,5 @@
+import { provideEventPlugins } from "@taiga-ui/event-plugins";
+import { provideAnimations } from "@angular/platform-browser/animations";
 import {
   ApplicationConfig,
   LOCALE_ID,
@@ -26,7 +28,8 @@ registerLocaleData(localeRu, 'ru');
 
 export const appConfig: ApplicationConfig = {
   providers: [
-    provideBrowserGlobalErrorListeners(),
+        provideAnimations(),
+        provideBrowserGlobalErrorListeners(),
     provideZonelessChangeDetection(),
     provideRouter(
       routes,
@@ -46,5 +49,6 @@ export const appConfig: ApplicationConfig = {
       provide: LOCALE_ID,
       useFactory: localeProvider,
     },
-  ],
+        provideEventPlugins()
+    ],
 };

@@ -4,7 +4,7 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
   selector: 'cpd-base-layout',
   imports: [],
   templateUrl: './base-layout.html',
-  styleUrl: './base-layout.scss',
+  styleUrl: './base-layout.less',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class BaseLayout {

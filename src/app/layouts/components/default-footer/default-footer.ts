@@ -4,7 +4,7 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
   selector: 'cpd-default-footer',
   imports: [],
   templateUrl: './default-footer.html',
-  styleUrl: './default-footer.scss',
+  styleUrl: './default-footer.less',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class DefaultFooter {

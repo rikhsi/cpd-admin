@@ -4,7 +4,7 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
   selector: 'cpd-recovery',
   imports: [],
   templateUrl: './recovery.html',
-  styleUrl: './recovery.scss',
+  styleUrl: './recovery.less',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class Recovery {

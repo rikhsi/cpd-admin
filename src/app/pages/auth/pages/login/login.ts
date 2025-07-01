@@ -4,7 +4,7 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
   selector: 'cpd-login',
   imports: [],
   templateUrl: './login.html',
-  styleUrl: './login.scss',
+  styleUrl: './login.less',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class Login {

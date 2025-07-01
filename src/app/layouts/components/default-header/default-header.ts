@@ -4,7 +4,7 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
   selector: 'cpd-default-header',
   imports: [],
   templateUrl: './default-header.html',
-  styleUrl: './default-header.scss',
+  styleUrl: './default-header.less',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class DefaultHeader {
