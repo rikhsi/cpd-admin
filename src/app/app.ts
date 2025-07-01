@@ -2,11 +2,8 @@ import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 
 @Component({
-  selector: 'app-root',
+  selector: 'cpd-root',
   imports: [RouterOutlet],
-  templateUrl: './app.html',
-  styleUrl: './app.less'
+  template: `<router-outlet/>`,
 })
-export class App {
-  protected title = 'cpd-admin';
-}
+export class App {}
