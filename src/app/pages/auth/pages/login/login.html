@@ -1,19 +1,27 @@
 <h1 class="title">Логин</h1>
 
 <tui-input 
+    autocomplete="email"
+    type="email"
     [tuiTextfieldCleaner]="true"
-    class="email"
 >
     Почта
     <input tuiTextfieldLegacy />
 </tui-input>
 
+<tui-error [error]="error"></tui-error>
+
 <tui-input
     [tuiTextfieldCleaner]="true"
     [tuiTextfieldCustomContent]="eye"
+    class="password"
 >
     Пароль
-    <input type="password" tuiTextfieldLegacy />
+    <input  
+        autocomplete="password"
+        type="password"
+        tuiTextfieldLegacy 
+    />
 </tui-input>
 
 <a
@@ -34,8 +42,5 @@
 </button>
 
 <ng-template #eye>
-    <tui-icon
-        icon="@tui.eye"
-        class="success tui-space_left-3"
-    />
+    <tui-icon icon="@tui.eye"/>
 </ng-template>

@@ -59,7 +59,7 @@
               "src/styles.less"
             ],
             "stylePreprocessorOptions": {
-              "includePaths": ["public/styles"]
+              "includePaths": ["public/styles", "public/animations"]
             }
           },
           "configurations": {

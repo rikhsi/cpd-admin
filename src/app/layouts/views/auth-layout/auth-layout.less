@@ -1,5 +1,8 @@
 @import 'mixins';
 @import 'gradients';
+@import 'float';
+@import 'gradient';
+@import 'appear';
 
 :host {
     display: flex;
@@ -9,8 +12,12 @@
     overflow: hidden;
     padding: 20px;
     background: @blue-gradient-100;
+    background-size: 400% 400%;
+    animation: gradient-shift 20s ease infinite;
 
     .auth-layout {
+        position: relative;
+        z-index: 10;
         flex: 1;
         max-width: 500px;
         display: flex;
@@ -20,6 +27,7 @@
         backdrop-filter: blur(12px);
         background: @glass-gradient-100;
         border: 1px solid @glass-gradient-200;
+        animation: appear-from-distance 0.5s ease-out forwards;
 
         .media(@media-md, {
             padding: 24px 30px;
@@ -29,9 +37,18 @@
         .media(@media-xs, {
             padding: 24px;
         });
-
-        .logo {
-            margin-bottom: 20px;
-        }
     }
 }
+
+.logo {
+    margin-bottom: 20px;
+
+    &.animate {
+        position: absolute;
+        top: 0;
+        left: -2%;
+        animation: float-around-screen 10s ease-in-out infinite;
+        pointer-events: none;
+    }
+}
+
