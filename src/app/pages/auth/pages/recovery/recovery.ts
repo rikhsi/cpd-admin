@@ -34,7 +34,7 @@ import { TuiInputModule, TuiTextfieldControllerModule } from '@taiga-ui/legacy';
   providers: [RecoveryService],
 })
 export class Recovery {
-  get recoveryForm() {
+  protected get recoveryForm() {
     return this.rs.recoveryForm;
   }
 
@@ -43,7 +43,7 @@ export class Recovery {
     private alertService: TuiAlertService
   ) {}
 
-  submit(): void {
+  protected submit(): void {
     if (this.recoveryForm.valid) {
       this.recoveryForm.reset();
 

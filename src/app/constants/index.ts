@@ -4,3 +4,4 @@ export * from './storage';
 export * from './route-param';
 export * from './prefix';
 export * from './base-route';
+export * from './navigation';

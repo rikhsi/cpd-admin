@@ -1,5 +1,13 @@
-<img src="images/logo.svg">
+<img 
+    [ngClass]="sizeClass()" 
+    src="images/logo.svg"
+>
 
 @if (!withoutText()) {
-    <span class="brand">CPD</span>
+    <span 
+        [ngClass]="sizeClass()" 
+        class="brand"
+    >
+        CPD
+    </span>
 }

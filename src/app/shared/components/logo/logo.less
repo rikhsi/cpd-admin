@@ -4,17 +4,45 @@
 :host {
     display: flex;
     align-items: center;
-    column-gap: 4px;
+    column-gap: 8px;
+    user-select: none;
 
     img {
         width: 40px;
         height: 40px;
         user-select: none;
+
+        &.l {
+            width: 32px;
+            height: 32px;
+        }
+
+        &.m {
+            width: 28px;
+            height: 28px;
+        }
+
+        &.s {
+            width: 20px;
+            height: 20px;
+        }
     }
 
     .brand {
         color: @cpd-white-100;
 
         .text(700,22px,100%);
+
+        &.l {
+            font-size: 20px;
+        }
+
+        &.m {
+            font-size: 18px;
+        }
+
+        &.s {
+            font-size: 16px;
+        }
     }
 }

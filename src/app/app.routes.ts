@@ -1,6 +1,7 @@
 import { Routes } from '@angular/router';
 import { BaseRoute } from '@constants';
 import { authGuard, loginGuard } from '@core/guards';
+import { baseThemeResolver } from '@layouts/resolvers';
 import { AuthLayout, BaseLayout } from '@layouts/views';
 
 export const routes: Routes = [
@@ -13,6 +14,7 @@ export const routes: Routes = [
   {
     path: BaseRoute.BASE,
     component: BaseLayout,
+    resolve: { theme: baseThemeResolver },
     canActivate: [loginGuard],
     children: [
       {

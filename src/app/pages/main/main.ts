@@ -1,12 +1,11 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 
+
 @Component({
   selector: 'cpd-main',
   imports: [],
   templateUrl: './main.html',
-  styleUrl: './main.scss',
-  changeDetection: ChangeDetectionStrategy.OnPush
+  styleUrl: './main.less',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class Main {
-
-}
+export class Main {}

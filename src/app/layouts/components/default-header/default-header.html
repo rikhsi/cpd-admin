@@ -1,1 +1,17 @@
-<p>default-header works!</p>
+<header tuiNavigationHeader class="header">
+    <span tuiNavigationLogo>
+        <cpd-logo [size]="'m'"/>
+    </span>
+
+    <div class="options">
+        <button
+            iconStart="@tui.bell"
+            tuiIconButton
+            type="button"
+        >
+            Notifications
+        </button>
+        
+       <tui-avatar src="@tui.user" />
+    </div>
+</header>

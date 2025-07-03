@@ -36,24 +36,24 @@ import { toggleEye, togglePassword } from '@pages/auth/utils';
   providers: [LoginService],
 })
 export class Login {
-  readonly passwordType = signal<InputType>('password');
+  protected readonly passwordType = signal<InputType>('password');
 
-  readonly passwordIcon = computed<string>(() =>
+  protected readonly passwordIcon = computed<string>(() =>
     toggleEye(this.passwordType())
   );
 
-  get loginForm() {
+  protected get loginForm() {
     return this.ls.loginForm;
   }
 
   constructor(private ls: LoginService) {}
 
-  submit(): void {
+  protected submit(): void {
     if (this.loginForm.valid) {
     }
   }
 
-  toggle(): void {
+  protected toggle(): void {
     this.passwordType.update(togglePassword);
   }
 }

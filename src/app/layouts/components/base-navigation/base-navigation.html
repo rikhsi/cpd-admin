@@ -1,0 +1,63 @@
+ <aside
+    [tuiNavigationAside]="expanded()"
+    class="aside"
+>
+    <header>
+        <button
+            iconStart="@tui.home"
+            tuiAsideItem
+            type="button"
+            routerLink="/base"
+        >
+            <span>Главная</span>
+        </button>
+    </header>
+
+    @for (item of navigationItems; track item.name) {
+        @if (item.children.length) {
+             <tui-aside-group>
+                <button
+                    [iconStart]="item.icon"
+                    tuiAsideItem
+                    tuiChevron
+                    type="button"
+                >
+                    {{item.name}}
+
+                    <ng-template>
+                        @for (child of item.children; track child.name) {
+                            <button
+                                tuiAsideItem
+                                [iconStart]="child.icon"
+                                type="button"
+                                [routerLink]="child.url"
+                            >
+                                {{child.name}}
+                            </button>
+                        }
+                    </ng-template>
+                </button>
+            </tui-aside-group>
+        } @else {
+            <button
+                [iconStart]="item.icon"
+                tuiAsideItem
+                type="button"
+                [routerLink]="item.url"
+            >
+                {{item.name}}
+            </button>
+        }
+    }
+    
+    <footer>
+        <button
+            tuiAsideItem
+            type="button"
+            [iconStart]="expandedIcon()"
+            (click)="handleToggle()"
+        >
+            Закрыть
+        </button>
+    </footer>
+</aside>
