@@ -20,17 +20,17 @@ export const NAVIGATION_ITEMS: NavItem[] = [
       {
         name: 'Категории',
         icon: '@tui.list',
-        url: '/settings/categories',
+        url: '/settings/category',
       },
       {
         name: 'Страны',
         icon: '@tui.globe',
-        url: '/settings/countries',
+        url: '/settings/country',
       },
       {
         name: 'Регионы',
         icon: '@tui.map-pin',
-        url: '/settings/regions',
+        url: '/settings/region',
       },
       {
         name: 'Города',

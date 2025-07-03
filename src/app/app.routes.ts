@@ -22,6 +22,11 @@ export const routes: Routes = [
         pathMatch: 'full',
         loadComponent: () => import('@pages/main/main').then((c) => c.Main),
       },
+      {
+        path: BaseRoute.SETTINGS,
+        loadChildren: () =>
+          import('@pages/settings/settings.routes').then((r) => r.routes),
+      },
     ],
   },
   {
