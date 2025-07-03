@@ -6,11 +6,9 @@ import {
   model,
   signal,
 } from '@angular/core';
-import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { ControlValueAccessor } from '@angular/forms';
-import { ValidationService } from '@core/services';
 import { ControlType, FunctionType } from '@typings';
-import { debounceTime, Subject } from 'rxjs';
+import { Subject } from 'rxjs';
 
 @Directive()
 export abstract class ControlBaseDirective<T> implements ControlValueAccessor {
@@ -22,7 +20,6 @@ export abstract class ControlBaseDirective<T> implements ControlValueAccessor {
   message = signal<string>(null);
   isRequired = input<boolean>(false);
 
-  protected validationService = inject(ValidationService);
   protected destroyRef = inject(DestroyRef);
 
   public onChange: FunctionType<T> = () => {};
@@ -51,13 +48,5 @@ export abstract class ControlBaseDirective<T> implements ControlValueAccessor {
 
   markAsTouched(): void {
     this.onTouched?.();
-  }
-
-  initValidation(): void {
-    this.validate$
-      .pipe(debounceTime(500), takeUntilDestroyed(this.destroyRef))
-      .subscribe((control) => {
-        this.message.set(this.validationService.validateField(control));
-      });
   }
 }

@@ -25,6 +25,8 @@ import { apiInterceptor } from '@core/interceptors';
 import { localeProvider } from '@core/providers';
 import { TUI_LANGUAGE, TUI_RUSSIAN_LANGUAGE } from '@taiga-ui/i18n';
 import { of } from 'rxjs';
+import { tuiValidationErrorsProvider } from '@taiga-ui/kit';
+import { validationMessages } from '@constants';
 
 registerLocaleData(localeRu, 'ru');
 
@@ -56,5 +58,6 @@ export const appConfig: ApplicationConfig = {
       useValue: of(TUI_RUSSIAN_LANGUAGE),
     },
     provideEventPlugins(),
+    tuiValidationErrorsProvider(validationMessages),
   ],
 };

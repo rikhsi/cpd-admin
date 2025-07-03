@@ -1,1 +1,42 @@
-<p>recovery works!</p>
+<h1 class="title">Восстановление</h1>
+
+<form [formGroup]="recoveryForm" (keydown.enter)="submit()">
+    <tui-input 
+        autocomplete="email"
+        type="email"
+        [tuiTextfieldCleaner]="true"
+        formControlName="email"
+    >
+        Почта
+        <input tuiTextfieldLegacy />
+    </tui-input>
+
+    <tui-error 
+        [error]="[] | tuiFieldError | async" 
+        formControlName="email"
+        class="error">
+    </tui-error>
+</form>
+
+<a
+    tuiLink
+    routerLink="../login"
+    class="login"
+>
+    Знаете пароль? Вход
+</a>
+
+<tui-loader
+    [overlay]="true"
+    [showLoader]="recoveryForm.disabled"
+    class="submit"
+>
+    <button
+        tuiButton
+        [disabled]="recoveryForm.invalid"
+        type="button"
+        (click)="submit()"
+    >
+        Отправить
+    </button>
+</tui-loader>
