@@ -11,3 +11,5 @@ export type NavItem = {
   icon: string;
   children: Omit<NavItem, 'children'>[];
 };
+
+export type BreadcrumbItem = Omit<NavItem, 'children'>;

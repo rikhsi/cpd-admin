@@ -11,13 +11,13 @@ export enum AuthRoute {
 }
 
 export enum SettingsRoute {
-  BRAND = 'brand',
-  CATEGORY = 'category',
-  CHANNEL = 'channel',
-  CITY = 'city',
-  COUNTRY = 'country',
-  POSITION = 'position',
-  REGION = 'region',
-  ROLE = 'role',
-  SHOP = 'shop',
+  BRAND = 'brands',
+  CATEGORY = 'categories',
+  CHANNEL = 'channels',
+  CITY = 'cities',
+  COUNTRY = 'countries',
+  POSITION = 'positions',
+  REGION = 'regions',
+  ROLE = 'roles',
+  SHOP = 'shops',
 }

@@ -10,7 +10,27 @@
             tuiSubheader
             class="nav"
         >
-
+          <tui-breadcrumbs [itemsLimit]="5">
+                @for (item of breadcrumbs(); track item.name) {
+                    @if ($last) {
+                         <strong
+                            *tuiItem
+                            tuiFade
+                        >
+                            {{ item.name }}
+                        </strong>
+                    } @else {
+                        <button
+                            *tuiItem
+                            tuiLink
+                            [routerLink]="item.url"
+                            type="button"
+                        >
+                            {{ item.name }}
+                        </button>
+                    }
+                }
+            </tui-breadcrumbs>
         </nav>
 
         <div class="page">

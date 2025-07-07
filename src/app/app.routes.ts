@@ -14,6 +14,7 @@ export const routes: Routes = [
   {
     path: BaseRoute.BASE,
     component: BaseLayout,
+    data: { breadcrumb: { name: 'Главная' } },
     resolve: { theme: baseThemeResolver },
     canActivate: [loginGuard],
     children: [
