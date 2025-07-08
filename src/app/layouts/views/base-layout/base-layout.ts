@@ -5,7 +5,6 @@ import {
   signal,
 } from '@angular/core';
 import {
-  ActivatedRouteSnapshot,
   NavigationEnd,
   Router,
   RouterLink,
@@ -14,11 +13,11 @@ import {
 import { BaseNavigation, DefaultHeader } from '@layouts/components';
 import { buildBreadcrumbsFromSnapshot, getRootSnapshot } from '@shared/utils';
 import { TuiItem } from '@taiga-ui/cdk/directives/item';
-import { TuiLink } from '@taiga-ui/core';
-import { TuiBreadcrumbs } from '@taiga-ui/kit';
+import { TuiButton, TuiDataList, TuiDropdown, TuiLink } from '@taiga-ui/core';
+import { TuiBreadcrumbs, TuiChevron } from '@taiga-ui/kit';
 import { TuiNavigation } from '@taiga-ui/layout';
 import { BreadcrumbItem } from '@typings';
-import { filter, startWith } from 'rxjs';
+import { filter } from 'rxjs';
 
 @Component({
   selector: 'cpd-base-layout',
@@ -31,6 +30,10 @@ import { filter, startWith } from 'rxjs';
     TuiItem,
     TuiLink,
     RouterLink,
+    TuiButton,
+    TuiDropdown,
+    TuiChevron,
+    TuiDataList,
   ],
   templateUrl: './base-layout.html',
   styleUrl: './base-layout.less',

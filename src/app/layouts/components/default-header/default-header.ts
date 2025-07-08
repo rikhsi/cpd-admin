@@ -11,4 +11,6 @@ import { TuiNavigation } from '@taiga-ui/layout';
   styleUrl: './default-header.less',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class DefaultHeader {}
+export class DefaultHeader {
+  protected open = false;
+}

@@ -10,7 +10,7 @@
             tuiSubheader
             class="nav"
         >
-          <tui-breadcrumbs [itemsLimit]="5">
+            <tui-breadcrumbs [itemsLimit]="5">
                 @for (item of breadcrumbs(); track item.name) {
                     @if ($last) {
                          <strong
@@ -31,6 +31,29 @@
                     }
                 }
             </tui-breadcrumbs>
+
+            <div class="actions">
+                  <button
+                    tuiButton
+                    tuiDropdownOpen
+                    tuiDropdownLimitWidth="fixed"
+                    tuiChevron
+                    type="button"
+                    appearance="accent"
+                    [tuiDropdown]="dropdown"
+                >
+                    Экспорт
+                </button>
+
+                <button
+                    appearance="primary"
+                    iconStart="@tui.plus"
+                    tuiButton
+                    type="button"
+                >
+                    Создать
+                </button>
+            </div>
         </nav>
 
         <div class="page">
@@ -38,3 +61,23 @@
         </div>
     </main>
 </div>
+
+
+<ng-template #dropdown>
+    <tui-data-list size="m" role="menu">
+        <button
+            tuiOption
+            type="button"
+        >
+            JSON
+        </button>
+
+        <button
+            tuiOption
+            type="button"
+        >
+            CSV
+        </button>
+    </tui-data-list>
+</ng-template>
+  

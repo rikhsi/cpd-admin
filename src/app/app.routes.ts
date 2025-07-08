@@ -24,7 +24,7 @@ export const routes: Routes = [
         loadComponent: () => import('@pages/main/main').then((c) => c.Main),
       },
       {
-        path: BaseRoute.SETTINGS,
+        path: BaseRoute.HANDBOOK,
         loadChildren: () =>
           import('@pages/settings/settings.routes').then((r) => r.routes),
       },

@@ -2,7 +2,7 @@ export enum BaseRoute {
   NOT_FOUND = '404',
   AUTH = 'auth',
   BASE = 'base',
-  SETTINGS = 'settings',
+  HANDBOOK = 'handbook',
 }
 
 export enum AuthRoute {
