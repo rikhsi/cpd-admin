@@ -1,8 +1,8 @@
 import {
   ChangeDetectionStrategy,
   Component,
+  computed,
   OnInit,
-  signal,
 } from '@angular/core';
 import {
   NavigationEnd,
@@ -11,12 +11,18 @@ import {
   RouterOutlet,
 } from '@angular/router';
 import { BaseNavigation, DefaultHeader } from '@layouts/components';
+import { BaseLayoutService } from '@layouts/services';
 import { buildBreadcrumbsFromSnapshot, getRootSnapshot } from '@shared/utils';
 import { TuiItem } from '@taiga-ui/cdk/directives/item';
-import { TuiButton, TuiDataList, TuiDropdown, TuiLink } from '@taiga-ui/core';
+import {
+  TuiButton,
+  TuiDataList,
+  TuiDropdown,
+  TuiLink,
+  TuiLoader,
+} from '@taiga-ui/core';
 import { TuiBreadcrumbs, TuiChevron } from '@taiga-ui/kit';
 import { TuiNavigation } from '@taiga-ui/layout';
-import { BreadcrumbItem } from '@typings';
 import { filter } from 'rxjs';
 
 @Component({
@@ -34,15 +40,18 @@ import { filter } from 'rxjs';
     TuiDropdown,
     TuiChevron,
     TuiDataList,
+    TuiLoader,
   ],
   templateUrl: './base-layout.html',
   styleUrl: './base-layout.less',
   changeDetection: ChangeDetectionStrategy.OnPush,
+  providers: [BaseLayoutService],
 })
 export class BaseLayout implements OnInit {
-  breadcrumbs = signal<BreadcrumbItem[]>([]);
+  readonly isContentLoading = computed(() => this.blService.isContentLoading());
+  readonly breadcrumbs = computed(() => this.blService.breadcrumbs());
 
-  constructor(private router: Router) {}
+  constructor(private router: Router, private blService: BaseLayoutService) {}
 
   ngOnInit(): void {
     this.initBreadcrumbs();
@@ -55,7 +64,7 @@ export class BaseLayout implements OnInit {
         const snapshot = getRootSnapshot(this.router);
         const breadcrumbs = buildBreadcrumbsFromSnapshot(snapshot);
 
-        this.breadcrumbs.set(breadcrumbs);
+        this.blService.breadcrumbs.set(breadcrumbs);
       });
 
     this.router.navigate([], { onSameUrlNavigation: 'reload' });

@@ -1,1 +1,16 @@
-<p>settings-role works!</p>
+<cdk-virtual-scroll-viewport
+  itemSize="170"
+  class="viewport"
+  (scrolledIndexChange)="loadMore($event)"
+>
+  <ng-container *cdkVirtualFor="let role of roles()">
+      <cpd-role-card
+        [name]="role.name"
+        [reference]="role.reference"
+        [amount]="role.usersAmount"
+        [date]="role.createdAt"
+        (onEdit)="onEdit(role)"
+        (onDelete)="onDelete(role)"
+      />
+  </ng-container>
+</cdk-virtual-scroll-viewport>

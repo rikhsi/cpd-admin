@@ -1,14 +1,46 @@
 .content {
     display: flex;
 
-    .actions {
+    .nav {
+        width: 100%;
+
+        .actions {
+            display: flex;
+            align-items: center;
+            column-gap: 10px;
+        }
+    }
+
+    .main {
         display: flex;
-        align-items: center;
-        column-gap: 10px;
+        flex-direction: column;
+        position: relative;
+
+        .loader {
+            position: absolute;
+            bottom: 0px;
+            left: 48%;
+            display: flex;
+            justify-content: center;
+            padding: 12px;
+        }
     }
 
     .page {
-        padding: 16px 0;
+        width: 100%;
+        padding: 16px 0 0;
+        flex: 1;
+
+        ::ng-deep router-outlet ~ * {
+            position: relative;
+            display: flex;
+            height: 100%;
+            width: 100%;
+  
+            > * {
+                width: 100%;
+            }
+        }
     }
 }
 

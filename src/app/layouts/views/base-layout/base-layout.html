@@ -4,7 +4,7 @@
 
     <cpd-base-navigation/>
 
-    <main tuiNavigationMain>
+    <main tuiNavigationMain class="main">
         <nav
             compact
             tuiSubheader
@@ -59,9 +59,14 @@
         <div class="page">
             <router-outlet/>
         </div>
+
+        @if (isContentLoading()) {
+            <div class="loader">
+                <tui-loader size="m" class="loader" />
+            </div>
+        }
     </main>
 </div>
-
 
 <ng-template #dropdown>
     <tui-data-list size="m" role="menu">

@@ -1,0 +1,30 @@
+ <div
+    class="role-card"
+    tuiCard
+  >
+    <div class="header">
+      <strong>{{ name()}}</strong>
+      <span>{{ reference() }}</span>
+    </div>
+    <div class="meta">
+      <div>Создано: {{ date() | date: 'shortDate' }}</div>
+      <div>Количество пользователей: {{ amount() }}</div>
+    </div>
+    <div class="actions">
+        <button 
+            tuiButton 
+            size="s" 
+            (click)="onEdit.emit()"
+        >
+            Изменить
+        </button>
+      <button 
+            tuiButton 
+            size="s" 
+            appearance="error" 
+            (click)="onDelete.emit()"
+        >
+            Удалить
+        </button>
+    </div>
+  </div>
